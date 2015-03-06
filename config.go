@@ -1,9 +1,9 @@
 package main
 
 import (
-	"io/ioutil"
-	"gopkg.in/yaml.v2"
 	"errors"
+	"gopkg.in/yaml.v2"
+	"io/ioutil"
 )
 
 type Config struct {
@@ -11,8 +11,8 @@ type Config struct {
 }
 
 type SerialConfig struct {
-	Port   string `yaml:"port"`
-	Baud   int    `yaml:"baudrate"`
+	Port string `yaml:"port"`
+	Baud int    `yaml:"baudrate"`
 }
 
 func ParseConf(path string) (*Config, error) {

@@ -1,10 +1,10 @@
 package main
 
 import (
+	"flag"
 	"github.com/tarm/serial"
 	"log"
 	"time"
-	"flag"
 )
 
 var (
@@ -18,7 +18,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	
+
 	ch := &serial.Config{Name: config.Serial.Port, Baud: config.Serial.Baud}
 	s, err := serial.OpenPort(ch)
 	if err != nil {
@@ -31,4 +31,3 @@ func main() {
 	go reader(s)
 	writer(s)
 }
-
