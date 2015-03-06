@@ -8,6 +8,11 @@ import (
 	"io"
 	"time"
 	"fmt"
+	"flag"
+)
+
+var (
+	confFile = flag.String("conf", "config.yml", "config file path")
 )
 
 func reader(s io.ReadWriteCloser) {
@@ -34,10 +39,15 @@ func writer(s io.ReadWriteCloser) {
 	}
 }
 
-
 func main() {
-	config := NewConfig("/dev/tty.usbmodemfa131", 115200)
-	ch := &serial.Config{Name: config.Port, Baud: config.Baud}
+	flag.Parse()
+
+	config, err := ParseConf(*confFile)
+	if err != nil {
+		log.Fatal(err)
+	}
+	
+	ch := &serial.Config{Name: config.Serial.Port, Baud: config.Serial.Baud}
 	s, err := serial.OpenPort(ch)
 	if err != nil {
 		log.Fatal(err)
