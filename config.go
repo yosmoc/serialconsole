@@ -6,9 +6,5 @@ type Config struct {
 	Prompt string
 }
 
-func NewConfig(port string, baud int) *Config {
-	return &Config{
-		Port:   port,
-		Baud:   baud,
 	}
 }
