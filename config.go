@@ -1,9 +1,12 @@
 package main
 
 type Config struct {
-	Port   string
-	Baud   int
-	Prompt string
+	Serial SerialConfig `yaml:"serial"`
+}
+
+type SerialConfig struct {
+	Port   string `yaml:"port"`
+	Baud   int    `yaml:"baudrate"`
 }
 
 	}
