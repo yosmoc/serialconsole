@@ -11,6 +11,7 @@ Serialconsole is a interactive termimal interface for serial communication.
 ## Dependencies
 
 - github.com/tarm/serial
+- gopkg.in/yaml.v2
 
 ## License
 
