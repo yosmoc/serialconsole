@@ -1,0 +1,4 @@
+# serial port setting
+serial:
+    port: "/dev/ttyUSB0"
+    baudrate: 9600
